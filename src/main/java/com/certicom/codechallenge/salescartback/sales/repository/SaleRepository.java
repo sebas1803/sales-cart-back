@@ -23,7 +23,7 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
             "FROM products p JOIN sales_detail sd ON p.id = sd.product_id", nativeQuery = true)
     List<SaleDetailTotalResource> findSalesDetailTotal();
 
-    @Query(value = "SELECT * FROM sales WHERE date LIKE %?2% ", nativeQuery = true)
+    @Query(value = "SELECT * FROM sales WHERE date LIKE %?1% ", nativeQuery = true)
     List<Sale> findSalesByDate(@Param("date") Date date);
 
     @Modifying
